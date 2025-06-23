@@ -1,22 +1,16 @@
-# 🧠 Problem: Linked List Cycle Detection
+# Problem: Linked List Cycle Detection
 # Given the head of a singly linked list, determine if the linked list has a cycle in it.
-# A cycle occurs when a node's next pointer points to a previous node in the list,
-# forming an infinite loop.
+# A cycle occurs when a node's next pointer points to a previous node in the list, forming an infinite loop.
 
-# 💡 Approach:
-# We'll use Floyd’s Cycle Detection Algorithm (Tortoise and Hare technique),
-# which uses two pointers moving at different speeds. If there's a cycle,
-# they will eventually meet. This approach uses O(1) space and O(n) time.
+# Approach:
+# We'll use Floyd’s Cycle Detection Algorithm (Tortoise and Hare technique), which uses two pointers moving at different speeds. If there's a cycle,they will eventually meet. This approach uses O(1) space and O(n) time.
 
-# ------------------------------------------------------
-
-# 🔧 Node definition for singly linked list
 class ListNode:
     def __init__(self, val=0, next=None):
         self.val = val       # stores the value of the node
         self.next = next     # reference to the next node (initially None)
 
-# 🔧 Helper function to create a linked list from a list of values
+# Helper function to create a linked list from a list of values
 # If pos != -1, creates a cycle at the node located at index `pos`
 def createLinkedlist(values, pos):
     if not values:
@@ -42,7 +36,7 @@ def createLinkedlist(values, pos):
 
     return head
 
-# 🚀 Function to detect if the linked list contains a cycle
+# Function to detect if the linked list contains a cycle
 def hasCycle(head) -> bool:
     slow = fast = head  # initialize both pointers at head
 
@@ -55,10 +49,10 @@ def hasCycle(head) -> bool:
 
     return False  # if loop ends, no cycle is present
 
-# 🧪 Example usage
+# Example usage
 values = [3, 2, 0, -4]  # input list
 pos = 1  # index at which the last node will point to create a cycle (0-based)
 head = createLinkedlist(values, pos)  # create the linked list with a cycle
 
-# ✅ Check for cycle and print result
+# Check for cycle and print result
 print("Cycle detected:" if hasCycle(head) else "No cycle detected.")
